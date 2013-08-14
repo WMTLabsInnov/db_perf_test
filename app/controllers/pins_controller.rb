@@ -169,19 +169,19 @@ class PinsController < ApplicationController
 
   def mysql_get_distinct_values
     field_name = params[:field]
-    res = Mysql::Pin.select(field_name.to_sym).distinct.limit(100)
+    res = Mysql::Pin.select(field_name.to_sym).distinct
     respond_with(res.map(&field_name.to_sym))
   end
 
   def es_get_distinct_values
     field_name = params[:field]
-    res = Pin.all_selections(field_name.to_sym, {}, 100)
+    res = Pin.all_selections(field_name.to_sym, {})
     respond_with(res)
   end
 
   def mongo_get_distinct_values
     field_name = params[:field]
-    res = Mongo::Pin.collection.distinct(field_name, {})[0..100]
+    res = Mongo::Pin.collection.distinct(field_name, {})
     respond_with(res)
   end
 
