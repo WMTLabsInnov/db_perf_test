@@ -29,7 +29,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'tire'
-gem "mongo_mapper"
+gem "mongo_mapper" , :git => 'https://github.com/mongomapper/mongomapper.git'
 gem 'bson_ext'
 
 group :doc do

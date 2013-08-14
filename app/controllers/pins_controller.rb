@@ -226,7 +226,7 @@ class PinsController < ApplicationController
 
   def mongo_create_a_br_pin
     pin = BrPin.build_sample_pin
-    mongo_pin = Mongo::Pin.build(pin.attributes)
+    mongo_pin = Mongo::BrPin.build(pin.attributes)
     mongo_pin.save
     respond_with(mongo_pin)
   end
