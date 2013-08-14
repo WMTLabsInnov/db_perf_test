@@ -140,9 +140,8 @@ class PinsController < ApplicationController
 
   def mongo_random_lookup
     look_up_results = []
-    id_list = Mongo::Pin.id_list
     100.times do |i|
-      look_up_results <<  Mongo::Pin.find(id_list[rand(100)])
+      look_up_results <<  Mongo::Pin.find_by_p_id(ID_LIST[rand(100)])
     end
     respond_with(look_up_results)
   end
