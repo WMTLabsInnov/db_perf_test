@@ -20,7 +20,7 @@ fi
 echo "RAILS_ENV=$RAILS_ENV"
 
 TIMEOUT=${TIMEOUT-60}
-APP_ROOT=$TIRE_FINDER_ROOT
+APP_ROOT=$DB_PERF_TEST_ROOT
 PID=$APP_ROOT/tmp/pids/unicorn.pid
 CMD="cd $APP_ROOT; bundle exec unicorn -D -c $APP_ROOT/config/unicorn.rb -E $RAILS_ENV"
 AS_USER=$USER
