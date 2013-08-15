@@ -35,6 +35,10 @@ FlashDeal::Application.routes.draw do
 
   get 'pins/mysql_look_up_with_attributes_in_other_tables' => 'pins#mysql_look_up_with_attributes_in_other_tables'
 
+  get 'pins/mysql_filter_by_pinner_id_and_sort_by_social_rank' => 'pins#mysql_filter_by_pinner_id_and_sort_by_social_rank'
+  get 'pins/es_filter_by_pinner_id_and_sort_by_social_rank' => 'pins#es_filter_by_pinner_id_and_sort_by_social_rank'
+  get 'pins/mongo_filter_by_pinner_id_and_sort_by_social_rank' => 'pins#mongo_filter_by_pinner_id_and_sort_by_social_rank'
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

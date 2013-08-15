@@ -269,4 +269,22 @@ class PinsController < ApplicationController
    respond_with(result.to_json(:include => [:pinner, :wmt_product]))
   end
 
+  def mysql_filter_by_pinner_id_and_sort_by_social_rank
+    result = Mysql::Pin.where(pinner_id: 'sweetlele', board_cat: 'holidays_events'
+      ).order('social_rank desc').limit(100)
+
+    respond_with(result)
+  end
+
+  def es_filter_by_pinner_id_and_sort_by_social_rank
+    result = Pin.filter_by_fields({pinner_id: 'sweetlele', board_cat: 'holidays_events'},
+      {sort: { by: :social_rank}})
+    respond_with(result)
+  end
+
+  def mongo_filter_by_pinner_id_and_sort_by_social_rank
+    result = Mongo::Pin.where(pinner_id: 'sweetlele',
+      board_cat: 'holidays_events').order(:social_rank.desc).limit(100)
+    respond_with(result)
+  end
 end
